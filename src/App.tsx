@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import { Button } from './components/Button';
+import { ThemeProvider } from 'styled-components'
+import { defaultTheme } from './styles/themes/default'
+import { Router } from './Router'
+import { BrowserRouter } from 'react-router-dom'
+
+import { GlobalStyle } from './styles/global'
 
 export function App() {
   return (
-   <>
-    <Button variant='primary'/>
-    <Button variant='secondary'/>
-    <Button variant='success'/>
-    <Button variant='danger'/>
-   </>
-  );
-};
+    <ThemeProvider theme={defaultTheme}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+      <GlobalStyle />
+    </ThemeProvider>
+  )
+}
